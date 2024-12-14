@@ -1,5 +1,7 @@
 import itertools
-from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES
+from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CHOICES, \
+                                     DRINKS_CHOICES_PRICES
+
 
 
 def print_header_user_interface():
@@ -21,18 +23,20 @@ def print_header_user_interface():
 
 
 def print_user_interface():
-    food_choices_list_numbers = [i for i in range(1,21)]
+    food_choices_numbers_list = [i for i in range(1,21)]
     food_choices_list = [i for i in FOOD_CHOICES]
     food_choices_price_list = [i for i in FOOD_CHOICES_PRICES]
-    for (a, b, c) in zip(food_choices_list_numbers, food_choices_list, food_choices_price_list):
-        print(a, b, c)
+    drinks_choices_list_numbers = [i for i in range(41,61)]
+    drinks_choices_list = [i for i in DRINKS_CHOICES]
+    drinks_choices_price_list = [i for i in DRINKS_CHOICES_PRICES]
 
+    for (num_of_food, food_item, food_item_price, num_of_drink, drink_item, drink_item_price) in  \
+          zip(food_choices_numbers_list, food_choices_list, \
+              food_choices_price_list, drinks_choices_list_numbers, \
+              drinks_choices_list, drinks_choices_price_list):
+        print(f"  {num_of_food}     {food_item}        {food_item_price}        |   \
+                 {num_of_drink}        {drink_item}        {drink_item_price}")
 
-    #for i, choice in enumerate(FOOD_CHOICES, start=1):
-    #    if i< 10:
-    #        print(f"   ({i})    {choice}")
-    #    elif i >= 10:
-    #        print(f"   ({i})   {choice}")
 
 
 

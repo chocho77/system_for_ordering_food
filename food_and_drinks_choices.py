@@ -12,11 +12,14 @@ FOOD_CHOICES_PRICES = (
 
 
 DRINKS_CHOICES = (
-    "to", "be", "continue"
+    "Airan", "Coca-Cola", "Coffee Americano", "Coffee Black Tea", "Coffee Cappuccino", \
+    "Coffee Caramel", "Coffee Espresso", "Coffee Latte,", "Coffee Macchiato", \
+    "Coffee Mochachino", "Fanta", "Milk", "Sprite", "Tea Ahmad", "Tea Black", \
+    "Tea Lemon", "Tea Lipton", "Tea Milk", "Tea Simba", "Water"
     
 )
 
 DRINKS_CHOICES_PRICES = (
-    "to", "be", "continue"
-
+    8.50, 5.00, 6.50, 6.50, 6.00, 3.00, 6.50, 5.50, 5.00, 6.50, 5.00, 9.00, 5.00, \
+    5.50, 4.00, 4.50, 5.00, 6.00, 8.50, 3.00
 )
