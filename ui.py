@@ -23,6 +23,7 @@ def print_header_user_interface():
 
 
 def print_user_interface():
+    width = 68
     food_choices_numbers_list = [i for i in range(1,21)]
     food_choices_list = [i for i in FOOD_CHOICES]
     food_choices_price_list = [i for i in FOOD_CHOICES_PRICES]
@@ -34,8 +35,11 @@ def print_user_interface():
           zip(food_choices_numbers_list, food_choices_list, \
               food_choices_price_list, drinks_choices_list_numbers, \
               drinks_choices_list, drinks_choices_price_list):
-        print(f"  {num_of_food}     {food_item}        {food_item_price}        |   \
-                 {num_of_drink}        {drink_item}        {drink_item_price}")
+        text_output =  f"{num_of_food} {food_item} {food_item_price} |  \
+                {num_of_drink}  {drink_item} {drink_item_price}"
+        text_output_format = text_output.center(width)
+        print(text_output_format)
+        
 
 
 
