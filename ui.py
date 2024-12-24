@@ -43,13 +43,10 @@ def print_header_user_interface():
     separate_symbol = '|'
     
     print(f"{symbols_print_before_text} {main_message} {symbols_print_after_text}")
-<<<<<<< HEAD
     print(f"  {number_symbol}  {food_text_name}   {space_numbers_between_texts(5)} {price_text} {space_numbers_between_texts(12)} {separate_symbol}", end="")
     print(f"  {space_numbers_between_texts(6)}{number_symbol} {space_numbers_between_texts(3)} {drink_text_name}   {space_numbers_between_texts(7)}   {price_text}  ")
-=======
     print(f"  {number_symbol}  {food_text_name}   {space_food_name_price}  {price_text}     {separate_symbol}", end="")
     print(f"  {number_symbol}  {drink_text_name}  {space_drink_name_price}  {price_text}  ")
->>>>>>> 3bfddb3d003cd2bd08a45563312b35ff12e361e0
 
 
 def print_user_interface():
@@ -68,13 +65,11 @@ def print_user_interface():
     # column 7    
     drinks_choices_price_list = [i for i in DRINKS_CHOICES_PRICES]
 
-<<<<<<< HEAD
     spacings = [6, 20, 20, 10, 10, 25, 10]  # Varying spaces between columns
     print_columns(food_choices_numbers_list, food_choices_list, \
                   food_choices_price_list,separator_list,drinks_choices_list_numbers,  
                   drinks_choices_list, drinks_choices_price_list, spacings=spacings)
     
-=======
     for (num_of_food, food_item, food_item_price, num_of_drink, drink_item, drink_item_price) in  \
           zip(food_choices_numbers_list, food_choices_list, \
               food_choices_price_list, drinks_choices_list_numbers, \
@@ -321,7 +316,6 @@ def print_user_interface():
 
 
 
->>>>>>> 3bfddb3d003cd2bd08a45563312b35ff12e361e0
         
 
 
