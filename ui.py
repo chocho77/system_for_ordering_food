@@ -1,5 +1,5 @@
 from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CHOICES, \
-                                     DRINKS_CHOICES_PRICES, SEPARATOR_LIST
+                                     DRINKS_CHOICES_PRICES, SEPARATOR_LIST, TEXT_RM_LIST
 
 def space_numbers_between_texts(number: int) -> str:
     return " " * number
@@ -52,20 +52,22 @@ def print_user_interface():
     # column 2
     food_choices_list = [i for i in FOOD_CHOICES]
     # column 3
-    food_choices_price_list = [i for i in FOOD_CHOICES_PRICES]
+    rm_text_list = [i for i in TEXT_RM_LIST]
     # column 4
-    separator_list = [i for i in SEPARATOR_LIST]
+    food_choices_price_list = [i for i in FOOD_CHOICES_PRICES]
     # column 5
-    drinks_choices_list_numbers = [i for i in range(41,61)]
+    separator_list = [i for i in SEPARATOR_LIST]
     # column 6
+    drinks_choices_list_numbers = [i for i in range(41,61)]
+    # column 7
     drinks_choices_list = [i for i in DRINKS_CHOICES]
-    # column 7    
+    # column 8    
     drinks_choices_price_list = [i for i in DRINKS_CHOICES_PRICES]
 
-    spacings = [6, 20, 20, 10, 10, 25, 10]  # Varying spaces between columns
-    print_columns(food_choices_numbers_list, food_choices_list, \
+    spacings = [6, 20, 3, 17, 10, 10, 24, 3, 15]  # Varying spaces between columns
+    print_columns(food_choices_numbers_list, food_choices_list, rm_text_list,
                   food_choices_price_list,separator_list,drinks_choices_list_numbers,  
-                  drinks_choices_list, drinks_choices_price_list, spacings=spacings)
+                  drinks_choices_list, rm_text_list ,drinks_choices_price_list, spacings=spacings)
     
   
 

@@ -27,3 +27,6 @@ DRINKS_CHOICES_PRICES = (
 SEPARATOR_LIST = (
     "|", "|", "|","|","|","|","|","|","|","|","|","|","|","|","|", "|","|","|","|","|"
     )
+TEXT_RM_LIST = (
+    "RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM","RM"
+)
