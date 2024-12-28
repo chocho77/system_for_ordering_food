@@ -45,7 +45,19 @@ def print_header_user_interface():
     print(f"{symbols_print_before_text} {main_message} {symbols_print_after_text}")
     print(f"  {number_symbol}  {food_text_name}   {space_numbers_between_texts(5)} {price_text} {space_numbers_between_texts(12)} {separate_symbol}", end="")
     print(f"  {space_numbers_between_texts(6)}{number_symbol} {space_numbers_between_texts(3)} {drink_text_name}   {space_numbers_between_texts(7)}   {price_text}  ")
-   
+
+def print_footer_interface():
+    print() # print empty row
+    print(f"{space_numbers_between_texts(2)} (M) MAIN MENU {space_numbers_between_texts(29)} (P) PAYMENT {space_numbers_between_texts(33)} (E) EXIT")
+    print(103 * "_")
+
+def print_choice_msg():
+    user_choice = input("Please Select Your Operation: ")
+    print()
+    print(103 * "_")
+
+
+
 def print_user_interface():
     # column 1
     food_choices_numbers_list = [i for i in range(1,21)]
@@ -69,13 +81,11 @@ def print_user_interface():
                   food_choices_price_list,separator_list,drinks_choices_list_numbers,  
                   drinks_choices_list, rm_text_list ,drinks_choices_price_list, spacings=spacings)
     
-  
 
+def print_main_ui():
+      print_header_user_interface()
+      print_user_interface()
+      print_footer_interface()
+      print_choice_msg()
 
-        
-
-
-
-
-
-
+ 
