@@ -1,8 +1,7 @@
 from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CHOICES, \
                                      DRINKS_CHOICES_PRICES, SEPARATOR_LIST, TEXT_RM_LIST
-from food_choices_from_main_menu import food_choices
-from drink_choices_from_main_menu import drink_choices
 from user_input import take_user_input
+from validation import is_main_menu_input_valid, map_user_input, valid_success
 
 
 def space_numbers_between_texts(number: int) -> str:
@@ -57,22 +56,12 @@ def print_footer_interface():
 
 def print_choice_msg():
     user_choice = take_user_input()
-    if user_choice.isdigit():
-            user_choice = int(user_choice)
+    is_valid_input = is_main_menu_input_valid(user_choice)
+    if is_valid_input:
+        user_correct_input = valid_success(user_choice)
+        map_user_input(user_correct_input)
     else:
-            raise ValueError    
-    #validation
-    try :
-         pass
-    except ValueError():
-         pass
-    print()
-    print(103 * "_")
-    if user_choice >= 1 and user_choice <= 20: # filter food choices
-        food_choices(user_choice)
-    elif user_choice >= 41 and user_choice <= 60: # filter drink choices
-        drink_choices(user_choice)
-
+        print("The input is invalid.")
 
 def print_user_interface():
     # column 1
