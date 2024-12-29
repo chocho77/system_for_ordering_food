@@ -2,6 +2,7 @@ from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CH
                                      DRINKS_CHOICES_PRICES, SEPARATOR_LIST, TEXT_RM_LIST
 from food_choices_from_main_menu import food_choices
 from drink_choices_from_main_menu import drink_choices
+from user_input import take_user_input
 
 
 def space_numbers_between_texts(number: int) -> str:
@@ -55,7 +56,7 @@ def print_footer_interface():
     print(103 * "_")
 
 def print_choice_msg():
-    user_choice = input("Please Select Your Operation: ")
+    user_choice = take_user_input()
     if user_choice.isdigit():
             user_choice = int(user_choice)
     else:
