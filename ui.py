@@ -59,6 +59,7 @@ def print_choice_msg():
     print(103 * "_")
     if user_choice >= 1 and user_choice <= 20: # filter food choices
         food_choices(user_choice)
+        
 
 
 def print_user_interface():
