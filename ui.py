@@ -1,6 +1,7 @@
 from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CHOICES, \
                                      DRINKS_CHOICES_PRICES, SEPARATOR_LIST, TEXT_RM_LIST
 from food_choices_from_main_menu import food_choices
+from drink_choices_from_main_menu import drink_choices
 
 
 def space_numbers_between_texts(number: int) -> str:
@@ -55,11 +56,13 @@ def print_footer_interface():
 
 def print_choice_msg():
     user_choice = int(input("Please Select Your Operation: "))
+    #validation 
     print()
     print(103 * "_")
     if user_choice >= 1 and user_choice <= 20: # filter food choices
         food_choices(user_choice)
-        
+    elif user_choice >= 41 and user_choice <= 60: # filter drink choices
+        drink_choices(user_choice)
 
 
 def print_user_interface():
