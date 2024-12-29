@@ -55,8 +55,16 @@ def print_footer_interface():
     print(103 * "_")
 
 def print_choice_msg():
-    user_choice = int(input("Please Select Your Operation: "))
-    #validation 
+    user_choice = input("Please Select Your Operation: ")
+    if user_choice.isdigit():
+            user_choice = int(user_choice)
+    else:
+            raise ValueError    
+    #validation
+    try :
+         pass
+    except ValueError():
+         pass
     print()
     print(103 * "_")
     if user_choice >= 1 and user_choice <= 20: # filter food choices
