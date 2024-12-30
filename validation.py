@@ -3,6 +3,16 @@ from drink_choices_from_main_menu import drink_choices
 
 
 def is_main_menu_input_valid(user_input: str) -> bool:
+    is_digit =user_input.isdigit()
+    is_letter_M = (user_input == "M")
+    is_letter_P = (user_input == "P")
+    is_letter_E = (user_input == "E")
+    if is_letter_M:
+         return True
+    elif is_letter_P:
+         return True
+    elif is_letter_E:
+         return True
     if not user_input.isdigit():
         return False
     return True

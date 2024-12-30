@@ -2,6 +2,7 @@ from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CH
                                      DRINKS_CHOICES_PRICES, SEPARATOR_LIST, TEXT_RM_LIST
 from user_input import take_user_input
 from validation import is_main_menu_input_valid, map_user_input, valid_success
+import sys
 
 
 def space_numbers_between_texts(number: int) -> str:
@@ -55,13 +56,23 @@ def print_footer_interface():
     print(103 * "_")
 
 def print_choice_msg():
-    user_choice = take_user_input()
-    is_valid_input = is_main_menu_input_valid(user_choice)
-    if is_valid_input:
-        user_correct_input = valid_success(user_choice)
-        map_user_input(user_correct_input)
-    else:
-        print("The input is invalid.")
+    while True:
+        user_choice = take_user_input()
+        is_valid_input = is_main_menu_input_valid(user_choice)
+        if is_valid_input:
+            if user_choice == "M":
+                print_main_ui()
+            elif user_choice == "P":
+                print("PAYMENT")
+            elif user_choice == "E":
+                print("Exit Program Bye!")
+                print("Have a Nice Day!")
+                sys.exit(0)
+            elif not (user_choice == "M" and user_choice == "P" and user_choice == "E"):
+                user_correct_input = valid_success(user_choice)
+                map_user_input(user_correct_input)
+        else:
+            print("The input is invalid.")
 
 def print_user_interface():
     # column 1
