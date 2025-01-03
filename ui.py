@@ -1,11 +1,21 @@
 from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CHOICES, \
                                      DRINKS_CHOICES_PRICES, SEPARATOR_LIST, TEXT_RM_LIST
-from user_input import take_user_input
+from user_input import take_user_input, take_user_order
 from validation import is_main_menu_input_valid, map_user_input, valid_success
 import sys
 from database import read_data_from_db
+from management import management_user_key_set, management_user_key_get
 
+# in management.py module in future !!!
 d = {}
+
+def set_order_user_key(user_key:str) -> None:
+    _user_key = user_key
+    management_user_key_set(_user_key)
+
+def get_order_user_key() -> str:
+    _user_key = management_user_key_get()
+    return _user_key
 
 
 def space_numbers_between_texts(number: int) -> str:
@@ -56,7 +66,7 @@ def print_header_user_interface():
 def print_footer_interface():
     print() # print empty row
     print(f" (M) MAIN MENU {space_numbers_between_texts(6)} (S) SELECT ORDER ", end="")
-    print(f" {space_numbers_between_texts(4)} (L) LIST OF ORDERS", end = "")
+    print(f" {space_numbers_between_texts(4)} (L) LIST OF ITEMS FOR ORDER", end = "")
     print(f" {space_numbers_between_texts(5)}(P) PAYMENT {space_numbers_between_texts(5)}(E) EXIT")
     print(103 * "_")
 
@@ -69,13 +79,15 @@ def print_choice_msg():
                 print_main_ui()
             elif user_choice == "S":
                 print("SELECT ORDER")
+                key = take_user_order()
+                set_order_user_key(key)
             elif user_choice == "L":
-                #key = input("Enter order: ")
-                print("LIST OF ORDERS")           
+                print("LIST OF ITEMS FOR ORDER ")
+                print(f"Order {get_order_user_key()}")  
+                d = read_data_from_db(get_order_user_key())
+                print(d)         
             elif user_choice == "P":
                 print("PAYMENT")
-                #d = read_data_from_db(key)
-                #print(d)
             elif user_choice == "E":
                 print("Exit Program Bye!")
                 print("Have a Nice Day!")

@@ -1,34 +1,38 @@
 from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES
 from database import insert_data_from_db
-
+from management import management_user_key_get
 
 def food_choices(user_choice:int):
     food_choices_list = [i for i in FOOD_CHOICES]
     food_choices_prices_list = [i for i in FOOD_CHOICES_PRICES]
 
     if user_choice == 1:
-        key = "order_1"
+        key = management_user_key_get()
         print(f"{food_choices_list[0]}     RM {food_choices_prices_list[0]}")
         number_of_items = int(input("How Many You Want to Order?: "))
         insert_data_from_db(key, food_choices_list[0], food_choices_prices_list[0],
                              number_of_items)
         
     elif user_choice == 2:
-        key = "order_1"
+        key = management_user_key_get()
         print(f"{food_choices_list[1]}     RM {food_choices_prices_list[1]}")
         number_of_items = int(input("How Many You Want to Order?: "))
-        insert_data_from_db(key, food_choices_list[1], food_choices_prices_list[0],
+        insert_data_from_db(key, food_choices_list[1], food_choices_prices_list[1],
                             number_of_items)
 
     elif user_choice == 3:
+        key = management_user_key_get()
         print(f"{food_choices_list[2]}     RM {food_choices_prices_list[2]}")
         number_of_items = int(input("How Many You Want to Order?: "))
-        print(number_of_items)
+        insert_data_from_db(key, food_choices_list[2], food_choices_prices_list[2],
+                            number_of_items)
         
     elif user_choice == 4:
+        key = management_user_key_get()
         print(f"{food_choices_list[3]}     RM {food_choices_prices_list[3]}")
         number_of_items = int(input("How Many You Want to Order?: "))
-        print(number_of_items)
+        insert_data_from_db(key, food_choices_list[3], food_choices_prices_list[3],
+                            number_of_items)
         
     elif user_choice == 5:
         print(f"{food_choices_list[4]}     RM {food_choices_prices_list[4]}")
