@@ -67,24 +67,20 @@ def print_choice_msg():
         if is_valid_input:
             if user_choice == "M":
                 print_main_ui()
-
+            elif user_choice == "S":
+                print("SELECT ORDER")
+            elif user_choice == "L":
+                #key = input("Enter order: ")
+                print("LIST OF ORDERS")           
             elif user_choice == "P":
                 print("PAYMENT")
-
-            elif user_choice == "S":
-                key = input("Enter order: ") 
-            
-            elif user_choice == "L":
-                d = read_data_from_db(key)
-                print(d)
-            
+                #d = read_data_from_db(key)
+                #print(d)
             elif user_choice == "E":
                 print("Exit Program Bye!")
                 print("Have a Nice Day!")
                 sys.exit(0)
-            
-            elif not (user_choice == "M" and user_choice == "S" and user_choice == "P" and \
-                      user_choice == "L" and user_choice == "E"):
+            elif not (user_choice == "M" and user_choice == "P" and user_choice == "S" and user_choice == "L" and user_choice == "E"):
                 user_correct_input = valid_success(user_choice)
                 map_user_input(user_correct_input)
         else:
