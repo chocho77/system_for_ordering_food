@@ -3,6 +3,9 @@ from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CH
 from user_input import take_user_input
 from validation import is_main_menu_input_valid, map_user_input, valid_success
 import sys
+from database import read_data_from_db
+
+d = {}
 
 
 def space_numbers_between_texts(number: int) -> str:
@@ -52,7 +55,9 @@ def print_header_user_interface():
 
 def print_footer_interface():
     print() # print empty row
-    print(f"{space_numbers_between_texts(2)} (M) MAIN MENU {space_numbers_between_texts(29)} (P) PAYMENT {space_numbers_between_texts(33)} (E) EXIT")
+    print(f" (M) MAIN MENU {space_numbers_between_texts(6)} (S) SELECT ORDER ", end="")
+    print(f" {space_numbers_between_texts(4)} (L) LIST OF ORDERS", end = "")
+    print(f" {space_numbers_between_texts(5)}(P) PAYMENT {space_numbers_between_texts(5)}(E) EXIT")
     print(103 * "_")
 
 def print_choice_msg():
@@ -62,13 +67,24 @@ def print_choice_msg():
         if is_valid_input:
             if user_choice == "M":
                 print_main_ui()
+
             elif user_choice == "P":
                 print("PAYMENT")
+
+            elif user_choice == "S":
+                key = input("Enter order: ") 
+            
+            elif user_choice == "L":
+                d = read_data_from_db(key)
+                print(d)
+            
             elif user_choice == "E":
                 print("Exit Program Bye!")
                 print("Have a Nice Day!")
                 sys.exit(0)
-            elif not (user_choice == "M" and user_choice == "P" and user_choice == "E"):
+            
+            elif not (user_choice == "M" and user_choice == "S" and user_choice == "P" and \
+                      user_choice == "L" and user_choice == "E"):
                 user_correct_input = valid_success(user_choice)
                 map_user_input(user_correct_input)
         else:
