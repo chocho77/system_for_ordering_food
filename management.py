@@ -25,6 +25,11 @@ def management_user_key_get()-> str:
     _user_key = key
     return _user_key
 
+def management_user_key_validation()->None:
+    global key
+    if key == "":
+        key="order_1"
+
 def management_user_key_record(user_key:str):
     global user_keys
     user_keys.append(user_key)

@@ -1,12 +1,13 @@
 from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES
 from database import insert_data_from_db
-from management import management_user_key_get
+from management import management_user_key_get, management_user_key_validation
 
 def food_choices(user_choice:int):
     food_choices_list = [i for i in FOOD_CHOICES]
     food_choices_prices_list = [i for i in FOOD_CHOICES_PRICES]
 
     if user_choice == 1:
+        management_user_key_validation()
         key = management_user_key_get()
         print(f"{food_choices_list[0]}     RM {food_choices_prices_list[0]}")
         number_of_items = int(input("How Many You Want to Order?: "))
@@ -14,6 +15,7 @@ def food_choices(user_choice:int):
                              number_of_items)
         
     elif user_choice == 2:
+        management_user_key_validation()
         key = management_user_key_get()
         print(f"{food_choices_list[1]}     RM {food_choices_prices_list[1]}")
         number_of_items = int(input("How Many You Want to Order?: "))
@@ -21,6 +23,7 @@ def food_choices(user_choice:int):
                             number_of_items)
 
     elif user_choice == 3:
+        management_user_key_validation()
         key = management_user_key_get()
         print(f"{food_choices_list[2]}     RM {food_choices_prices_list[2]}")
         number_of_items = int(input("How Many You Want to Order?: "))
@@ -28,6 +31,7 @@ def food_choices(user_choice:int):
                             number_of_items)
         
     elif user_choice == 4:
+        management_user_key_validation()
         key = management_user_key_get()
         print(f"{food_choices_list[3]}     RM {food_choices_prices_list[3]}")
         number_of_items = int(input("How Many You Want to Order?: "))
