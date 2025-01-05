@@ -1,13 +1,17 @@
+from typing import List, Dict
 from food_and_drinks_choices import FOOD_CHOICES, FOOD_CHOICES_PRICES, DRINKS_CHOICES, \
                                      DRINKS_CHOICES_PRICES, SEPARATOR_LIST, TEXT_RM_LIST
 from user_input import take_user_input, take_user_order
 from validation import is_main_menu_input_valid, map_user_input, valid_success
 import sys
-from database import read_data_from_db
-from management import management_user_key_set, management_user_key_get
+from database import read_data_from_db,read_db
+from management import management_user_key_set, management_user_key_get, management_user_key_record, management_input_user_key_different
 
-# in management.py module in future !!!
-d = {}
+
+def read_database() -> Dict:
+    _d = {}
+    _d = read_db()
+    return _d
 
 def set_order_user_key(user_key:str) -> None:
     _user_key = user_key
@@ -16,6 +20,9 @@ def set_order_user_key(user_key:str) -> None:
 def get_order_user_key() -> str:
     _user_key = management_user_key_get()
     return _user_key
+
+def record_order_user_key(user_key: str):
+    management_user_key_record(user_key)
 
 
 def space_numbers_between_texts(number: int) -> str:
@@ -81,11 +88,16 @@ def print_choice_msg():
                 print("SELECT ORDER")
                 key = take_user_order()
                 set_order_user_key(key)
+                record_order_user_key(key)
+                management_input_user_key_different()
+
             elif user_choice == "L":
                 print("LIST OF ITEMS FOR ORDER ")
                 print(f"Order {get_order_user_key()}")  
                 d = read_data_from_db(get_order_user_key())
-                print(d)         
+                print(d)       
+                print(f"Databse {read_database()}")
+
             elif user_choice == "P":
                 print("PAYMENT")
             elif user_choice == "E":

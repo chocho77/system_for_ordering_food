@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict
 
 d = {}
 list_user_item_orders = []
@@ -13,5 +13,19 @@ def insert_data_from_db(key:str,user_item_choice:str,
 
 def read_data_from_db(key: str) -> List:
     return d[key]
+
+def extract_list_user_item_orders() -> List:
+    global list_user_item_orders
+    _list_user_item_orders = list_user_item_orders
+    return _list_user_item_orders
+
+def empty_list_user_item_orders() -> None:
+    global list_user_item_orders
+    list_user_item_orders.clear()
+
+def read_db() -> Dict:
+    global d
+    return d
+
 
 
